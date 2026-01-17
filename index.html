@@ -1,103 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RPS</title>
-</head>
+    <title>Sign Up Form</title>
+  </head>
 
-<body>
+  <body>
+    <!-- Main page wrapper-->
+    <main class="page">
+      <!-- Left panel -->
+      <section class="left-side" aria-hidden="true"></section>
 
+      <!-- Right panel-->
+      <section class="right-side">
+        <header class="intro">
+          <p>
+            This is not a real online service! Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Impedit nesciunt eligendi eos
+            accusamus soluta ipsam autem dolorum laborum in!
+          </p>
 
+          <p>You <i>know</i> you want to.</p>
+        </header>
 
+        <!-- Signup form -->
+        <form class="contact-form" method="post" autocomplete="off">
+          <!-- Form header/title -->
+          <div class="form-title">
+            <h2>Let’s do this!</h2>
+            <p class="hint">* indicates <i>required</i> fields</p>
+          </div>
 
+          <div class="form-grid">
+            <!-- First Name -->
+            <div class="field">
+              <label for="first_name">First Name *</label>
+              <input
+                type="text"
+                id="first_name"
+                name="firstname"
+                minlength="2"
+                maxlength="20"
+                required
+              />
+            </div>
 
+            <!-- Last Name -->
+            <div class="field">
+              <label for="last_name">Last Name</label>
+              <input
+                type="text"
+                id="last_name"
+                name="lastname"
+                minlength="2"
+                maxlength="20"
+              />
+            </div>
 
+            <!-- Email -->
+            <div class="field">
+              <label for="email">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="useremail"
+                maxlength="50"
+                placeholder="example@email.com"
+                required
+              />
+            </div>
 
+            <!-- Phone -->
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phonenumber"
+                placeholder="4041234567"
+                minlength="10"
+                maxlength="11"
+              />
+            </div>
 
+            <!-- Password -->
+            <div class="field">
+              <label for="password">Password *</label>
+              <input type="password" id="password" name="password" required />
+            </div>
 
+            <!-- Confirm Password -->
+            <div class="field">
+              <label for="password-confirm">Confirm Password *</label>
+              <input
+                type="password"
+                id="password-confirm"
+                name="passwordConfirm"
+                required
+              />
+            </div>
+          </div>
 
+          <!-- Footer area -->
+          <div class="footer-container">
+            <button class="submit-btn" type="submit">Create Account</button>
 
-
-
-
-
-
-
-
-
-<script>
-
-  const computerOptions = ['rock', 'paper', 'scissors'];
-
-
-  function getComputerChoice() {
-    const index = Math.floor(Math.random() * computerOptions.length);
-    return computerOptions[index].toLowerCase();
-  }
-
-
-  function getHumanChoice() {
-    let input = prompt('Please choose Rock, Paper, or Scissors');
-    let playerMove = (input || "").trim().toLowerCase()
-    while (!["rock", "paper", "scissors"].includes(playerMove)) {
-      input = prompt("Invalid choice. Please type Rock, Paper, or Scissors");
-      if (input === null) return "";
-      playerMove = input.trim().toLowerCase();
-    }
-    return playerMove;
-  }
-
-
-
-
-  function playGame() {
-
-    let humanScore = 0;
-    let computerScore = 0;
-
-    function playRound(humanChoice, computerChoice) {
-      console.log(`You: ${humanChoice}, Computer: ${computerChoice}`);
-
-
-      if (computerChoice === 'rock' && humanChoice === 'scissors') {
-        computerScore++;
-        console.log(`${computerChoice} beats ${humanChoice}. You lose --- ${humanScore} -- ---- ${computerScore}`);
-      } else if (computerChoice === 'paper' && humanChoice === 'rock') {
-        computerScore++;
-        console.log(`${computerChoice} beats ${humanChoice}. You lose --- ${humanScore} -- ---- ${computerScore}`);
-      } else if (computerChoice === 'scissors' && humanChoice === 'paper') {
-        computerScore++;
-        console.log(`${computerChoice} beats ${humanChoice}. You lose--- ${humanScore} -- ---- ${computerScore}`);
-      } else if (computerChoice === humanChoice) {
-        console.log(`${computerChoice} === ${humanChoice}. Tie Round--- ${humanScore} -- ---- ${computerScore}`);
-      } else {
-        humanScore++;
-        console.log(`${humanChoice} beats ${computerChoice}. You WIN--- ${humanScore} -- ---- ${computerScore}`);
-      }
-    }
-    playRound(getHumanChoice(), getComputerChoice());
-    playRound(getHumanChoice(), getComputerChoice());
-    playRound(getHumanChoice(), getComputerChoice());
-    playRound(getHumanChoice(), getComputerChoice());
-    playRound(getHumanChoice(), getComputerChoice());
-
-    if(humanScore > computerScore){
-      console.log(`PLAYER WINS`)
-    } else if (humanScore < computerScore){
-      console.log(`COMPUTER WINS`);
-    } else{
-      console.log('ITS A TIE');
-    }
-  }
-
-  playGame();
-
-</script>
-
-
-
-</body>
-
+            <p class="footer-notes">
+              Already have an account?
+              <a href="./index.html">Log in</a>
+            </p>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
 </html>
